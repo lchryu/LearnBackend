@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <p>Your choice: <span id="userChoice">-</span></p>
+    <p>Computer choice: <span id="computerChoice">-</span></p>
+    <p>Result: <span id="result">-</span></p>
+
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+
+    <script>
+      const getComputerChoice = () => {
+        const randomNum = Math.random();
+        if (randomNum < 1 / 3) {
+          return "rock";
+        } else if (randomNum <= 2 / 3) {
+          return "paper";
+        } else {
+          return "scissors";
+        }
+      };
+
+      const determineWinner = (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
+          return "It's a tie!";
+        }
+        if (
+          (userChoice === "rock" && computerChoice === "scissors") ||
+          (userChoice === "paper" && computerChoice === "rock") ||
+          (userChoice === "scissors" && computerChoice === "paper")
+        ) {
+          return "You win!";
+        }
+        return "Computer wins!";
+      };
+
+      const playGame = (userChoice) => {
+        const computerChoice = getComputerChoice();
+        const result = determineWinner(userChoice, computerChoice);
+
+        document.getElementById("userChoice").textContent = userChoice;
+        document.getElementById("computerChoice").textContent = computerChoice;
+        document.getElementById("result").textContent = result;
+      };
+    </script>
+  </body>
+</html>

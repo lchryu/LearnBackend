@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            background-color: #f5f6fa;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 16px;
+        }
+
+        .app {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 16px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #eaeaea;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Button Example</h1>
+    <div class="app"></div>
+    <script>
+        const appDiv = document.querySelector('.app');
+        for (let i = 0; i < 5; i++) {
+            const button = document.createElement('button');
+            button.textContent = `Button ${i + 1}`;
+            // button.addEventListener('click', () => {
+            //     console.clear();
+            //     console.log(`You clicked Button ${i + 1}`);
+            // });
+            button.dataset.index = i + 1;
+            appDiv.appendChild(button);
+        }
+        // const buttons = document.querySelectorAll('button');
+        // buttons.forEach(button => {
+        //     button.addEventListener('click', () => {
+        //         console.clear();
+        //         console.log(`You clicked Button ${button.dataset.index}`);
+        //     });
+        // });
+
+        appDiv.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                console.clear();
+                console.log(`You clicked Button ${event.target.dataset.index}`);
+            }
+        });
+    </script>
+</body>
+
+</html>

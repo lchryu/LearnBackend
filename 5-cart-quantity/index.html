@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+        border-left: 5px solid #333;
+        padding: 10px;
+        background-color: #f4f4f4;
+      }
+      button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: beige;
+        background-color: #333;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cart Quantity</h1>
+    <button
+      onclick="
+        console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      show quantity
+    </button>
+    <button onclick="incrementCart(1);">Add to cart</button>
+    <button onclick="incrementCart(2);">+2</button>
+    <button onclick="incrementCart(3);">+3</button>
+    <button onclick="resetCart();">Reset cart</button>
+  </body>
+  <script>
+    function incrementCart(byAmount) {
+      cartQuantity += byAmount;
+      console.log(
+        `Added ${byAmount} item(s) to cart. New quantity: ${cartQuantity}`
+      );
+    }
+    const resetCart = () => {
+      cartQuantity = 0;
+      console.log(`Cart reset. Quantity: ${cartQuantity}`);
+    };
+    let cartQuantity = 0;
+  </script>
+</html>
