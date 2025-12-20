@@ -76,9 +76,7 @@ function editTask(index) {
         renderTasks();
     });
 
-    cancelBtn.addEventListener('click', () => {
-        renderTasks();
-    });
+    cancelBtn.addEventListener('click', () => renderTasks());
 
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
